@@ -19,5 +19,5 @@ READ2=${SAMPLENAME}_2.fastq
 
 ## map all and output sorted bam
 module load bwa
-bwa mem -a -t $CPU $READ1 $READ2 | samtools view -Su  - | samtools sort - ${SAMPLENAME}.sorted
+bwa mem -t $CPU PhumU2.Riesia.fa $READ1 $READ2 | samtools view -Su  - | samtools sort - ${SAMPLENAME}.sorted
 
