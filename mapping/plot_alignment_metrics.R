@@ -11,6 +11,7 @@ for (i in 1:96){
  l$PCT_ADAPTER[l$V1==paste0('lice', i)]=a$PCT_ADAPTER[3]
 }
 
+write.table(l, 'alignment_metrics_alllice.txt', quote=F, sep='\t', row.names=F, col.names=T)
 
 pdf('alignment_metrics_alllice.pdf')
 ggplot(l, aes(x=V1, y=TOTAL_READS)) + geom_point()
