@@ -6,6 +6,9 @@
 set -e
 set -u
 
+module load samtools
+module load bwa
+
 ## path to reads, assuming arranged like from novogene download
 PATH=raw_reads/hwftp.novogene.com/data_release/C202SC17090235/raw_data
 
