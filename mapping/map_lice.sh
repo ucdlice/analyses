@@ -23,5 +23,5 @@ echo ${SAMPLENAME}
 
 ## map all and output sorted bam
 module load bwa
-bwa mem -t $CPU PhumU2.Riesia.fa ${PATH}/${SAMPLENAME}/${SAMPLENAME}"_*1.fq.gz" ${PATH}/${SAMPLENAME}/${SAMPLENAME}"_*2.fq.gz" | samtools view -Su  - | samtools sort - ${SAMPLENAME}.sorted
+bwa mem -t $CPU PhumU2.Riesia.fa ${PATH}/${SAMPLENAME}/${SAMPLENAME}(_*1.fq.gz) ${PATH}/${SAMPLENAME}/${SAMPLENAME}(_*2.fq.gz) | samtools view -Su  - | samtools sort - ${SAMPLENAME}.sorted
 
