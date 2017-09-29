@@ -6,6 +6,9 @@
 set -e
 set -u
 
+## path to reads, assuming arranged like from novogene download
+PATH=raw_reads/hwftp.novogene.com/data_release/C202SC17090235/raw_data
+
 
 CPU=12
 
@@ -14,10 +17,11 @@ mapfile -t SAMPLENAMES < lice.samplenames.txt  ## this is a file with each lice 
 SAMPLENAME=${SAMPLENAMES[$SLURM_ARRAY_TASK_ID]}
 echo ${SAMPLENAME}
 
-READ1=${SAMPLENAME}_1.fastq
-READ2=${SAMPLENAME}_2.fastq
+## read names have lots of extra info, so let's specify them by name below
+#READ1=${SAMPLENAME}_1.fastq
+#READ2=${SAMPLENAME}_2.fastq
 
 ## map all and output sorted bam
 module load bwa
-bwa mem -t $CPU PhumU2.Riesia.fa $READ1 $READ2 | samtools view -Su  - | samtools sort - ${SAMPLENAME}.sorted
+bwa mem -t $CPU PhumU2.Riesia.fa ${PATH}/${SAMPLENAME}/${SAMPLENAME}_*.1.fq.gz ${PATH}/${SAMPLENAME}/${SAMPLENAME}_*.2.fq.gz | samtools view -Su  - | samtools sort - ${SAMPLENAME}.sorted
 
