@@ -1,3 +1,11 @@
+#!/bin/bash -login
+#SBATCH -D /group/jrigrp8/mstitzer/lice/mapping
+#SBATCH -o /group/jrigrp8/mstitzer/lice/slurm-log/metrics-stdout-%j.txt
+#SBATCH -e /group/jrigrp8/mstitzer/lice/slurm-log/metrics-stderr-%j.txt
+#SBATCH -J metrics
+set -e
+set -u
+
 module load java
 module load samtools
 
