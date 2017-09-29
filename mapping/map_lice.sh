@@ -10,7 +10,7 @@ module load samtools
 module load bwa
 
 ## path to reads, assuming arranged like from novogene download
-PATH=raw_reads/hwftp.novogene.com/data_release/C202SC17090235/raw_data
+READPATH=raw_reads/hwftp.novogene.com/data_release/C202SC17090235/raw_data
 
 
 CPU=12
@@ -21,10 +21,13 @@ SAMPLENAME=${SAMPLENAMES[$SLURM_ARRAY_TASK_ID]}
 echo ${SAMPLENAME}
 
 ## read names have lots of extra info, so let's specify them by name below
-READ1=${PATH}/${SAMPLENAME}/${SAMPLENAME}_*1.fq.gz 
-READ2=${PATH}/${SAMPLENAME}/${SAMPLENAME}_*2.fq.gz
+READ1=${READPATH}/${SAMPLENAME}/${SAMPLENAME}_*1.fq.gz 
+READ2=${READPATH}/${SAMPLENAME}/${SAMPLENAME}_*2.fq.gz
+
+echo $READ1
+echo $READ2
 
 ## map all and output sorted bam
-module load bwa
-bwa mem -t $CPU PhumU2.Riesia.fa  $READ1 $READ2 | samtools view -Su  - | samtools sort - ${SAMPLENAME}.sorted
+#module load bwa
+bwa mem -t $CPU PhumU2.Riesia.fa $READ1 $READ2 | samtools view -Su  - | samtools sort - ${SAMPLENAME}.sorted
 
