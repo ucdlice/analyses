@@ -14,3 +14,5 @@
 2. Map with `bwa mem` using script `map_lice.sh`
 
  - submit with ```--array=0-95``` to map all simultaneously
+
+3. Calculate alignment metrics with `alignment_metrics.sh`, and plot them with `plot_alignment_metrics.R`. This outputs a plot (`alignment_metrics_alllice.pdf`) and tab-delimited file (`alignment_metrics_alllice.txt`) with number of reads sequenced, proportion mapped, and adapter contamination.
