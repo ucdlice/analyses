@@ -6,3 +6,6 @@ wc PhumU2.Riesia.fa
 
 ## output is:
 #   1395145   1398959 112900069 PhumU2.Riesia.fa
+
+## index genome for bwa 
+bwa index PhumU2.Riesia.fa
