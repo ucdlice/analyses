@@ -18,10 +18,10 @@ SAMPLENAME=${SAMPLENAMES[$SLURM_ARRAY_TASK_ID]}
 echo ${SAMPLENAME}
 
 ## read names have lots of extra info, so let's specify them by name below
-#READ1=${SAMPLENAME}_1.fastq
-#READ2=${SAMPLENAME}_2.fastq
+READ1=${PATH}/${SAMPLENAME}/${SAMPLENAME}_*1.fq.gz 
+READ2=${PATH}/${SAMPLENAME}/${SAMPLENAME}_*2.fq.gz
 
 ## map all and output sorted bam
 module load bwa
-bwa mem -t $CPU PhumU2.Riesia.fa ${PATH}/${SAMPLENAME}/${SAMPLENAME}(_*1.fq.gz) ${PATH}/${SAMPLENAME}/${SAMPLENAME}(_*2.fq.gz) | samtools view -Su  - | samtools sort - ${SAMPLENAME}.sorted
+bwa mem -t $CPU PhumU2.Riesia.fa  $READ1 $READ2 | samtools view -Su  - | samtools sort - ${SAMPLENAME}.sorted
 
