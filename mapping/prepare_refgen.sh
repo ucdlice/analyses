@@ -9,3 +9,8 @@ wc PhumU2.Riesia.fa
 
 ## index genome for bwa 
 bwa index PhumU2.Riesia.fa
+
+## index genome for gatk
+samtools faidx PhumU2.Riesia.fa
+module load java
+java -jar /share/apps/picard-tools-2.7.1/picard.jar CreateSequenceDictionary R=PhumU2.Riesia.fa O=PhumU2.Riesia.dict 
