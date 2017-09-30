@@ -23,15 +23,15 @@ java -jar /share/apps/picard-tools-2.7.1/picard.jar MarkDuplicates INPUT=../mapp
 fi
 
 ## recalibrate base quality
-if [ ! -f base_recalibration/lice${i}.bqsr.bam ];
-then
-java -jar /share/apps/GATK-3.6/GenomeAnalysisTK.jar \
-   -T PrintReads \
-   -R ../mapping/PhumU2.Riesia.fa \
-   -I deduped_reads/lice${i}.dedup.bam \
-   -BQSR base_recalibration/lice${i}.recalibration_report.grp \
-   -o base_recalibration/lice${i}.bqsr.bam
-fi
+#if [ ! -f base_recalibration/lice${i}.bqsr.bam ];
+#then
+#java -jar /share/apps/GATK-3.6/GenomeAnalysisTK.jar \
+#   -T PrintReads \
+#   -R ../mapping/PhumU2.Riesia.fa \
+#   -I deduped_reads/lice${i}.dedup.bam \
+#   -BQSR base_recalibration/lice${i}.recalibration_report.grp \
+#   -o base_recalibration/lice${i}.bqsr.bam
+#fi
 
 ## call variants in this individual, outputting gvcf
 if [ ! -f lice${i}.gvcf ];
@@ -39,7 +39,7 @@ then
 java ‐jar /share/apps/GATK-3.6/GenomeAnalysisTK.jar \
    -T HaplotypeCaller \
    -R ../mapping/PhumU2.Riesia.fa \
-   -I base_recalibration/lice${i}.bqsr.bam \
+   -I deduped_reads/lice${i}.dedup.bam \
    -o lice${i}.gvcf \
    -ERC GVCF \
 fi
