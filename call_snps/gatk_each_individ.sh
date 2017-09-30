@@ -44,7 +44,6 @@ java ‐jar /share/apps/GATK-3.6/GenomeAnalysisTK.jar \
    -ERC GVCF \
 fi
 
-done
 
 
 ## gvcf info here https://software.broadinstitute.org/gatk/documentation/article?id=3893
@@ -70,12 +69,12 @@ done
 
 ### joint genotype
 
- java -jar GenomeAnalysisTK.jar \
-   -T GenotypeGVCFs \
-   -R reference.fasta \
-   --variant sample1.g.vcf \
-   --variant sample2.g.vcf \
-   -o output.vcf
-   
+# java -jar GenomeAnalysisTK.jar \
+#   -T GenotypeGVCFs \
+#   -R reference.fasta \
+#   --variant sample1.g.vcf \
+#   --variant sample2.g.vcf \
+#   -o output.vcf
+#   
    
 ## lots of recalibration options
