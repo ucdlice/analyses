@@ -14,8 +14,8 @@ module load GATK
 mkdir -p deduped_reads
 mkdir -p base_recalibration
 
-for i in `seq 1 96`;
-do
+i=$SLURM_ARRAY_TASK_ID
+
 ## mark duplicates
 if [ ! -f deduped_reads/lice${i}.dedup.bam ];
 then
