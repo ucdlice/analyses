@@ -10,6 +10,8 @@ module load R/3.3.1
 module load maven
 module load java
 module load GATK
+module load samtools
+
 
 mkdir -p deduped_reads
 mkdir -p base_recalibration
@@ -32,6 +34,8 @@ java -jar /share/apps/picard-tools-2.7.1/picard.jar AddOrReplaceReadGroups \
       RGSM=20
 
 rm deduped_reads/temp.lice${i}.dedup.bam 
+
+samtools index deduped_reads/lice${i}.dedup.bam
 
 fi
 
