@@ -41,7 +41,7 @@ java ‐jar /share/apps/GATK-3.6/GenomeAnalysisTK.jar \
    -R ../mapping/PhumU2.Riesia.fa \
    -I deduped_reads/lice${i}.dedup.bam \
    -o lice${i}.gvcf \
-   -ERC GVCF \
+   -ERC GVCF 
 fi
 
 
