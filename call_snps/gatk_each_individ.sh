@@ -36,7 +36,7 @@ fi
 ## call variants in this individual, outputting gvcf
 if [ ! -f lice${i}.gvcf ];
 then
-java ‐jar /share/apps/GATK-3.6/GenomeAnalysisTK.jar \
+java -jar /share/apps/GATK-3.6/GenomeAnalysisTK.jar \
    -T HaplotypeCaller \
    -R ../mapping/PhumU2.Riesia.fa \
    -I deduped_reads/lice${i}.dedup.bam \
