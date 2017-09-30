@@ -17,23 +17,32 @@ mkdir -p base_recalibration
 for i in `seq 1 96`;
 do
 ## mark duplicates
+if [ ! -f deduped_reads/lice${i}.dedup.bam ]
+then
 java -jar /share/apps/picard-tools-2.7.1/picard.jar MarkDuplicates INPUT=../mapping/lice${i}.sorted.bam OUTPUT=deduped_reads/lice${i}.dedup.bam METRICS_FILE=deduped_reads/lice${i}.dedup.metrics.txt
+fi
+
 ## recalibrate base quality
- 
+if [ ! -f base_recalibration/lice${i}.bqsr.bam ]
+then
 java -jar /share/apps/GATK-3.6/GenomeAnalysisTK.jar \
    -T PrintReads \
    -R ../mapping/PhumU2.Riesia.fa \
    -I deduped_reads/lice${i}.dedup.bam \
    -BQSR base_recalibration/lice${i}.recalibration_report.grp \
    -o base_recalibration/lice${i}.bqsr.bam
+fi
 
 ## call variants in this individual, outputting gvcf
+if [ ! -f lice${i}.gvcf ]
+then
 java ‐jar /share/apps/GATK-3.6/GenomeAnalysisTK.jar \
    -T HaplotypeCaller \
    -R ../mapping/PhumU2.Riesia.fa \
    -I base_recalibration/lice${i}.bqsr.bam \
    -o lice${i}.gvcf \
    -ERC GVCF \
+fi
 
 done
 
