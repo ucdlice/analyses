@@ -19,7 +19,7 @@ i=$SLURM_ARRAY_TASK_ID
 ## mark duplicates
 if [ ! -f deduped_reads/lice${i}.dedup.bam ];
 then
-java -jar /share/apps/picard-tools-2.7.1/picard.jar MarkDuplicates INPUT=../mapping/lice${i}.sorted.bam OUTPUT=deduped_reads/lice${i}.dedup.bam METRICS_FILE=deduped_reads/temp.lice${i}.dedup.metrics.txt
+java -jar /share/apps/picard-tools-2.7.1/picard.jar MarkDuplicates INPUT=../mapping/lice${i}.sorted.bam OUTPUT=deduped_reads/temp.lice${i}.dedup.bam METRICS_FILE=deduped_reads/lice${i}.dedup.metrics.txt
 
 ## add read group
 java -jar /share/apps/picard-tools-2.7.1/picard.jar AddOrReplaceReadGroups \
