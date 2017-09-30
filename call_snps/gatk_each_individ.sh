@@ -52,16 +52,16 @@ fi
 
 
 ## call variants in this individual, outputting gvcf
-if [ ! -f lice${i}.gvcf ];
+if [ ! -f lice${i}.g.vcf ];
 then
 java -jar /share/apps/GATK-3.6/GenomeAnalysisTK.jar \
    -T HaplotypeCaller \
    -R ../mapping/PhumU2.Riesia.fa \
    -I deduped_reads/lice${i}.dedup.bam \
-   -o lice${i}.gvcf \
-   -ERC GVCF \
-   -variant_index_type LINEAR \
-   -variant_index_parameter 128000
+   -o lice${i}.g.vcf \
+   -ERC GVCF #\
+#   -variant_index_type LINEAR \
+#   -variant_index_parameter 128000
 fi
 
 
