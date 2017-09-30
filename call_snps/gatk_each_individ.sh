@@ -19,7 +19,20 @@ i=$SLURM_ARRAY_TASK_ID
 ## mark duplicates
 if [ ! -f deduped_reads/lice${i}.dedup.bam ];
 then
-java -jar /share/apps/picard-tools-2.7.1/picard.jar MarkDuplicates INPUT=../mapping/lice${i}.sorted.bam OUTPUT=deduped_reads/lice${i}.dedup.bam METRICS_FILE=deduped_reads/lice${i}.dedup.metrics.txt
+java -jar /share/apps/picard-tools-2.7.1/picard.jar MarkDuplicates INPUT=../mapping/lice${i}.sorted.bam OUTPUT=deduped_reads/lice${i}.dedup.bam METRICS_FILE=deduped_reads/temp.lice${i}.dedup.metrics.txt
+
+## add read group
+java -jar /share/apps/picard-tools-2.7.1/picard.jar AddOrReplaceReadGroups \
+      I=deduped_reads/temp.lice${i}.dedup.bam  \
+      O=deduped_reads/lice${i}.dedup.bam  \
+      RGID=4 \
+      RGLB=lib1 \
+      RGPL=illumina \
+      RGPU=unit1 \
+      RGSM=20
+
+rm deduped_reads/temp.lice${i}.dedup.bam 
+
 fi
 
 ## recalibrate base quality
@@ -32,6 +45,7 @@ fi
 #   -BQSR base_recalibration/lice${i}.recalibration_report.grp \
 #   -o base_recalibration/lice${i}.bqsr.bam
 #fi
+
 
 ## call variants in this individual, outputting gvcf
 if [ ! -f lice${i}.gvcf ];
