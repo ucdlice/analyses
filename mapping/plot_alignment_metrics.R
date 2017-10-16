@@ -1,4 +1,5 @@
 library(cowplot)
+library(ggplot)
 
 l=read.table('lice.samplenames.txt')
 
