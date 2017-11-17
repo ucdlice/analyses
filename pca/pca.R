@@ -1,13 +1,13 @@
 setwd('/Users/pbrand/science/research/ped/analyses/pca/')
 library(SNPRelate)
-bed<-"maybethis.bed"
-fam<-"maybethis.fam"
-bim<-"maybethis.bim"
+bed<-"all_lice_geno0.5.bed"
+fam<-"all_lice_geno0.5.fam"
+bim<-"all_lice_geno0.5.bim"
 
-snpgdsBED2GDS(bed,fam,bim,"test.gds")
-snpgdsSummary("test.gds")
+snpgdsBED2GDS(bed,fam,bim,"all_lice_geno0.5.gds")
+snpgdsSummary("all_lice_geno0.5.gds")
 
-genofile<-snpgdsOpen("test.gds")
+genofile<-snpgdsOpen("all_lice_geno0.5.gds")
 
 genofile
 
@@ -16,11 +16,12 @@ sample.id<-read.gdsn(index.gdsn(genofile, "sample.id"))
 #use this to subsample data before PCA
 popraw<-read.table("popid.txt")
 sel<-as.vector(popraw[popraw[,3]=="SF",1])
-
+sel<-popraw[,1]
 #pca
 pca<-snpgdsPCA(genofile,autosome.only = F,sample.id = sel)
 pc.percent<-pca$varprop*100
 head(round(pc.percent,2))
+
 tab <- data.frame(sample.id = pca$sample.id,
                   EV1 = pca$eigenvect[,1],    # the first eigenvector
                   EV2 = pca$eigenvect[,2],    # the second eigenvector
