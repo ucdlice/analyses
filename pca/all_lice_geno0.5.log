@@ -1,0 +1,28 @@
+PLINK v1.90b3.38 64-bit (7 Jun 2016)
+Options in effect:
+  --allow-extra-chr
+  --bfile maybethis
+  --geno 0.5
+  --make-bed
+  --out all_lice_geno0.5
+
+Hostname: Philipps-MacBook-Pro-2.local
+Working directory: /Users/pbrand/science/research/ped/analyses/pca
+Start time: Fri Nov 17 15:49:11 2017
+
+Random number seed: 1510962551
+16384 MB RAM detected; reserving 8192 MB for main workspace.
+673154 variants loaded from .bim file.
+95 people (0 males, 0 females, 95 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to all_lice_geno0.5.nosex .
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 95 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.537452.
+217651 variants removed due to missing genotype data (--geno).
+455503 variants and 95 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to all_lice_geno0.5.bed + all_lice_geno0.5.bim +
+all_lice_geno0.5.fam ... done.
+
+End time: Fri Nov 17 15:49:11 2017
