@@ -1,6 +1,7 @@
 library(plyr)
+library(cowplot)
 
-p=read.table('all_lice.raw.pca.eigenvec', header=F, stringsAsFactor=F)
+p=read.table('all_lice_filtered_snps.pca.eigenvec', header=F, stringsAsFactor=F)
 
 a=read.table('../lice_info.txt', header=T, sep='\t', stringsAsFactor=F)
 p$ecto=mapvalues(p$V1, from=a$V1, to=a$Ecto)
