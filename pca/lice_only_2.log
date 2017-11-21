@@ -1,0 +1,25 @@
+PLINK v1.90b2n 64-bit (2 Nov 2014) 
+8 arguments: --allow-extra-chr --extract lice_only.map --file maybethis --make-bed --out lice_only_2
+Hostname: farm.cse.ucdavis.edu
+Working directory: /home/pbrand/ped
+Start time: Mon Nov 20 18:46:49 2017
+
+Random number seed: 1511232409
+64317 MB RAM detected; reserving 32158 MB for main workspace.
+Scanning .ped file... done.
+Performing single-pass .bed write (655901 variants, 95 people).
+--file: lice_only_2-temporary.bed + lice_only_2-temporary.bim +
+lice_only_2-temporary.fam written.
+655901 variants loaded from .bim file.
+95 people (0 males, 0 females, 95 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to lice_only_2.nosex .
+--extract: 654904 variants remaining.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 95 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.534459.
+654904 variants and 95 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to lice_only_2.bed + lice_only_2.bim + lice_only_2.fam ... done.
+
+End time: Mon Nov 20 18:46:53 2017

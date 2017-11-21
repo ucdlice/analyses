@@ -1,0 +1,25 @@
+PLINK v1.90b2n 64-bit (2 Nov 2014) 
+8 arguments: --allow-extra-chr --extract NC_pre.map --file maybethis --make-bed --out NC_pre_2
+Hostname: farm.cse.ucdavis.edu
+Working directory: /home/pbrand/ped
+Start time: Mon Nov 20 18:48:11 2017
+
+Random number seed: 1511232491
+64317 MB RAM detected; reserving 32158 MB for main workspace.
+Scanning .ped file... done.
+Performing single-pass .bed write (655901 variants, 95 people).
+--file: NC_pre_2-temporary.bed + NC_pre_2-temporary.bim +
+NC_pre_2-temporary.fam written.
+655901 variants loaded from .bim file.
+95 people (0 males, 0 females, 95 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to NC_pre_2.nosex .
+--extract: 636 variants remaining.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 95 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.583615.
+636 variants and 95 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to NC_pre_2.bed + NC_pre_2.bim + NC_pre_2.fam ... done.
+
+End time: Mon Nov 20 18:48:13 2017
