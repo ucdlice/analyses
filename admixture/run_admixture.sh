@@ -13,3 +13,4 @@ for K in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;\
 #for K in 11 12 13 14 15;\
 do /group/jrigrp8/arabidopsis/admixture/admixture_linux-1.3.0/admixture --cv ${plinkbed} $K | tee log${K}.alllice.out; done
 
+grep -h CV log*.out > CV_error.txt
