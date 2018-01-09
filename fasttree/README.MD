@@ -8,6 +8,11 @@ get rid of indel in * for ALT genotype and for REF (there were 18k of these in t
 
 `bcftools view -m2 -M2 -v snps all_lice_filtered_snps.geno0.1mind0.5.vcf.gz > clean_noast.all_lice.vcf`
 
+make vcf file a vcf-tab file
+
+`cat clean_noast.all_lice.vcf | vcf-to-tab > clean_noast.all_lice.tab`
+
+But wait, there are still indels in the vcf file!
 get rid of indels (*) in the REF allele, which are not removed with bcftools
 
 `grep -v "*" clean_noast.all_lice.tab > clean_noast_noindels_all_lice.tab`
