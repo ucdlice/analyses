@@ -1,6 +1,6 @@
-## convert vcf to fasta and make a tree
+convert vcf to fasta and make a tree
 
-module load bcftools
+'module load bcftools'
 module load samtools
 module load vcftools
 
