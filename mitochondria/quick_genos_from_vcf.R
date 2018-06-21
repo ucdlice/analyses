@@ -3,6 +3,11 @@ library(data.table)
 library(plyr)
 
 ## make a vcf with your region of interest
+## here's one way
+### if you need position filter
+## `vcftools --vcf ../call_snps/all_lice_filtered_snps.vcf --chr DS235854 --from-bp 1288063 --to-bp 1288814 --recode --out PHUM540560`
+### or everything on a minichromsome!
+## `vcftools --vcf ../call_snps/all_lice_filtered_snps.vcf --chr NC_013962.1 --recode --out NC_013962.1`
 a=read.vcf('/group/jrigrp8/mstitzer/lice/single_gene/PHUM540560.recode.vcf')
 ## get general lice info
 li=fread('/group/jrigrp8/mstitzer/lice/lice_info.txt', header=T)
